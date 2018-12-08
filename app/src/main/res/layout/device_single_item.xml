@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="device"
+            type="android.bluetooth.BluetoothDevice"/>
+    </data>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_5">
+    <LinearLayout
+        android:id="@+id/device_layout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_weight="1">
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/device_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{device.name}"/>
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/device_address"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@{device.address}"/>
+    </LinearLayout>
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/device_status"
+        android:layout_margin="@dimen/margin_5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@{device.bondState == device.BOND_BONDED ? @drawable/paired_bluetooth : @drawable/un_paired_bluetooth}"/>
+</LinearLayout>
+</layout>
